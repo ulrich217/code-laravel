@@ -17,3 +17,11 @@ Route::get('/', function () {
 Route::get('1', function () {return 'je suis la page 1 !';});
 Route::get('2', function () {return 'je suis la page 2 !';});
 Route::get('3', function () {return 'je suis la page 3 !';});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
